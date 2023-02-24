@@ -1,5 +1,19 @@
 # Workshops
+
 Draft Workshop Course Material
+
+# Editor's Notes
+
+These are Markdown Slides presos, which require:
+
+-   `pyenv`
+-   `python3`
+-   `mdslides`
+-   `mdslides ./slides.md`
+-   `watchexec`
+-   `open ./cli/index.html`
+
+See <https://github.com/BeyondCodeBootcamp/presos#these-slides-are-built-with-markdown-slides>
 
 # License
 
