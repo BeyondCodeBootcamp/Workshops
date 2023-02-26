@@ -2,6 +2,8 @@
 
 Draft Workshop Course Material
 
+1. [Shell Workshop](/01-shell-slides/)
+
 # Editor's Notes
 
 These are Markdown Slides presos, which require:
