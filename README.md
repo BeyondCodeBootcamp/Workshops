@@ -2,18 +2,34 @@
 
 Draft Workshop Course Material
 
-1. [Shell Workshop](./01-shell-slides/)
+https://beyondcodebootcamp.github.io/Workshops/
 
-# Editor's Notes
+1. [Interactive Shell Workshop](./01-shell-slides/)
+2. [Shell Scripting Basics Workshop](./02-scripting-basic-slides/)
+
+# Presenter's Notes
+
+-   You can build auto (re)build any particular deck
+    ```sh
+    ./bin/watch-render src/02-scripting-basic-slides.md
+    ```
+-   Live edit the slides with _Markdown Editor_ on one screen
+    ```sh
+    open ./src/02-scripting-basic-slides.md
+    ```
+-   View the rendered slides in your browser
+    ```sh
+    open ./02-scripting-basic-slides/index.html
+    ```
+
+# Prerequisites
 
 These are Markdown Slides presos, which require:
 
 -   `pyenv`
 -   `python3`
 -   `mdslides`
--   `mdslides ./slides.md`
 -   `watchexec`
--   `open ./cli/index.html`
 
 See <https://github.com/BeyondCodeBootcamp/presos#these-slides-are-built-with-markdown-slides>
 
