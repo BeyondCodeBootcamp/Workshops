@@ -10,8 +10,6 @@ Warning:
 
 Live Editing
 
-Mac-centered
-
 Part 1.5 & 2 of 3
 
 ---
@@ -84,11 +82,13 @@ There is no magic.
 
 ## 0. Pre-req
 
+Prep work for upcoming exercises.
+
 ---
 
 ### 0.1 Webi
 
-Make sure `webi` is installed.
+Make sure [`webi`](https://webinstall.dev/webi) is installed.
 
 ```sh
 curl -sS https://webi.sh/ | sh
@@ -96,37 +96,62 @@ curl -sS https://webi.sh/ | sh
 
 ---
 
-### 0.2 Interactive Shell
+### 0.2 Friendly, Interactive Shell
 
-(exercises ahead)
+1. Get back into [`fish`](https://webinstall.dev/fish)
+    ```sh
+    fish
+    ```
+2. _If_ that fails
+    ```sh
+    webi fish
+    ```
+3. TREL. And try again.
 
 ---
 
-Get back into `fish`.
+### 0.3 Vim Essentials
+
+1. Install [`node`](https://webinstall.dev/node) for [`prettier`](https://webinstall.dev/prettier) (code formatter)
+
+    ```sh
+    webi node
+    node --version
+
+    pathman add ~/.local/opt/node/bin
+    node --version
+
+    webi prettier
+    ```
+
+2. Install [`vim-essentials`](https://webinstall.dev/vim-essentials) (formatters & linters)
+    ```sh
+    webi shfmt shellcheck
+    webi vim-essentials
+    ```
+
+---
+
+### 0.4 Command Line Utilities
+
+[`aliasman`](https://webinstall.dev/aliasman), [`bat`](https://webinstall.dev/bat), [`curlie`](https://webinstall.dev/curlie), [`jq`](https://webinstall.dev/jq)
 
 ```sh
-fish
+webi aliasman bat curlie jq
 ```
 
-If that fails:
-
-```sh
-webi fish
+```md
+| `aliasman` | create aliases that work cross shells |
+| `bat` | `cat` (view) files with colors & paging |
+| `curlie` | wrap `curl` with syntax highlighting |
+| `jq` | query JSON files and APIs for specific data |
 ```
-
-TREL. And try again.
 
 ---
 
-### 0.3 Temp Directory
+### 0.4 Temp Directory
 
-(junk and test files ahead)
-
----
-
-Go to the temp directory.
-
-<small>(and make sure you're there)</small>
+Go to a place we can make junk files.
 
 ```sh
 pwd
@@ -148,9 +173,15 @@ pushd /tmp/
 
 ---
 
-## 1. Interactive Concepts
+## Interactive Shell
+
+(Continued)
 
 ---
+
+### Big Goal
+
+Automate, Test and Debug tasks in Terminal
 
 0. Eratta
 1. Auto-complete
@@ -186,17 +217,15 @@ find /
 
 ---
 
-## 1.1 Autocomplete
+## 1. Autocomplete Goals
 
-11 out of 10 doctors agree:
+Avoid typos by avoiding typing.
 
-> Typing is the leading cause of typos
+> use the tools, Luke
 
 ---
 
-Try browsing your history \
-(or just typing letters) \
-and test the autocomplete:
+### 1.1 Just TREL
 
 ⬆️
 
@@ -204,66 +233,149 @@ and test the autocomplete:
 
 🎩 <kbd>tab</kbd> 🪄
 
----
-
-### 2. Navigation
-
-**Goal**: Learn keyboard navigation.
-
-(emacs-style and vim-style)
+Try browsing your history \
+(or just typing letters) \
+and test the autocomplete.
 
 ---
 
-### 2.0 Some Tools
+11 out of 10 doctors agree:
 
-```sh
-webi aliasman curlie bat jq
-```
+> Typing is the leading cause of typos
 
 ---
 
-Note<span>: We won't use this "for real" until later.
+### 2. Navigation Goals
 
-<small>For now they'll just give us an excuse to explore some navigation.</small>
+Learn keyboard navigation.
+
+-   emacs-style (line)
+-   vim-style (text)
 
 ---
 
-### 2.1 Beginning and End of Line
+### 2.1 Start & End (of Line)
 
-| Combo                            | Desc                                             |
-| -------------------------------- | ------------------------------------------------ |
-| <kbd>Ctrl ⌃</kbd> + <kbd>a</kbd> | A, the first letter,<br> goes to first character |
-| <kbd>Ctrl ⌃</kbd> + <kbd>e</kbd> | E for 'end'                                      |
+|                                  |                                       |
+| -------------------------------- | ------------------------------------- |
+| <kbd>Ctrl ⌃</kbd> + <kbd>a</kbd> | for start (of alphabet), leftmost key |
+| <kbd>Ctrl ⌃</kbd> + <kbd>e</kbd> | for 'end'                             |
+|                                  |                                       |
 
 <small>(fyi: these come from emacs, but are nearly-universally supported)</small>
 
 ---
 
-### 2.2 Exercise
+### 2.1.1 Exercise
 
 ```sh
 # type out this line      (alias 'setalias' as 'aliasman')
 alias setalias='aliasman'
 
-# but use up and ctrl + a to edit this line
+# but instead of typing this out:
+#   1. hit Up to see the previous line
+#   2. use Ctrl ⌃ + a to move to the start of the line
+#   3. add 'set' in front of 'alias'
+#   4. use Ctrl ⌃ + e to get back to the end of the line
+#   5. hit Enter ⏎ to run it
 setalias setalias='aliasman'
 ```
 
+<small>(note<span>:</span> the output will tell you to run `alias`, but you've already done that)</small>
+
+---
+
+Repeat for muscle memory!
+
 ```sh
-# get that muscle memory   (make our interactive cat a bat)
+# make our interactive `cat` a colorful `bat`
 alias cat='bat --style=plain --pager=none'
 setalias cat='bat --style=plain --pager=none'
 ```
 
+Feel the burn!
+
 ```sh
-# feel the burn!         (give our interactive curl colors)
+# give our interactive `curl` colors
 alias curl='curlie'
 setalias curl='curlie'
 ```
 
 ---
 
-### Goal 1.1
+### 2.2 Text Navigation
+
+🔝🇬
+
+⬅️🇭⬇️🇯⬆️🇰➡️🇱
+
+⏭️🇳
+
+---
+
+| <kbd>Shift ⇧</kbd> | 🔄  | does the opposite or extreme    |
+| ------------------ | --- | ------------------------------- |
+| <br>               |     |                                 |
+| `gg`, `G`          | 🔝  | **g**ood **g**ame # 1, opposite |
+| `hjkl`             | 📈  | awesome goes up to the right    |
+| `n`, `N`           | ⏭️  | **n**ext result, opposite       |
+
+---
+
+### 2.2.1 Exercise
+
+Let's pick a file with a few dozen lines...
+
+```sh
+vim ~/.vimrc
+```
+
+(updated by [`vim-essentials`](https://webinstall.dev/vim-essentials))
+
+---
+
+🎗️Reminder
+
+| <kbd>esc</kbd>, `:q!` | quit (immediately) |
+| --------------------- | ------------------ |
+| `/`                   | search             |
+| <kbd>esc</kbd>, `:w`  | write (save)       |
+
+---
+
+1. Go to the top and bottom
+    ```sh
+    gg  # top of file
+    G   # (the opposite)
+    ```
+2. Go all the way... 📈🇭🇯🇰🇱
+    ```sh
+    h   # left
+    j   # down
+    k   # up
+    l   # right
+    ```
+3. Search `/` for "the"
+    ```sh
+    n   # next result
+    N   # (the opposite)
+    ```
+
+---
+
+Repeat - build your muscle memory.
+
+Also, try [Vim Adventures](https://vim-adventures.com/).
+
+---
+
+ℹ️ vim-style text navigation works in _many_ places
+
+as we'll see shortly 😉
+
+---
+
+## 3. Variables Goals
 
 Learn to diagnose unexpected results
 
@@ -292,58 +404,48 @@ Learn to diagnose unexpected results
 
 What about each of these?
 
+(keep practicing <kbd>Ctrl ⌃</kbd> + <kbd>a</kbd> and <kbd>Ctrl ⌃</kbd> + <kbd>e</kbd>)
+
 ```sh
 echo It\'s   $100   bills y\'all
 echo 'It\'s   $100   bills y\'all'
+
 echo "It's   \$100   bills y'all"
 echo \"It's   \$100   bills y'all\"
 ```
 
 ---
 
-### Goal 1.2
-
-The url I wanted to show is too long to fit on a slide.
-
----
-
-That's okay. We can
-
-1. Declare a variable (interactive shell syntax)
-    ```sh
-    export my_url='https://raw.githubusercontent.com'
-    ```
-2. Add more to that variable
-    ```sh
-    export my_url="$my_url/BeyondCodeBootcamp/shell-cheatsheet"
-    export my_url="$my_url/main/README.md"
-    ```
-3. Use the variable (interactive shell syntax)
-    ```sh
-    curl -o ./NOTES.md \
-        "$my_url"
-    ```
-
----
+The file I wanted you to download:
 
 ```sh
-vim ./NOTES.md
+https://raw.githubusercontent.com/BeyondCodeBootcamp/shell-cheatsheet/main/README.md
 ```
 
-| <kbd>esc</kbd> | `:q!`  |
-| -------------- | ------ |
-| `/`            | search |
-| <kbd>esc</kbd> | `:wq`  |
+Too long to fit on a slide!
+
+(time to learn about variables!)
 
 ---
 
-| <kbd>Shift ⇧</kbd> | does the opposite or extreme |
-| ------------------ | ---------------------------- |
-| `n`                | **n**ext                     |
-| `N`                | _opposite_ of next           |
-| `gg`               | **g**ood **g**ame # 1        |
-| `G`                | opposite of #1               |
-| `hjkl`             | awesome goes up to the right |
+Download the url to NOTES.md \
+(in the tmp folder)
+
+```sh
+# 1. Declare a variable (interactive shell syntax)
+#    (note the single quotes)
+export my_url='https://raw.githubusercontent.com'
+
+# 2. Add more to that variable
+#    (note the double quotes)
+export my_url="$my_url/BeyondCodeBootcamp/shell-cheatsheet"
+export my_url="$my_url/main/README.md"
+
+# 3. Download using the variable (interactive shell syntax)
+#    (note the double quotes, again)
+curl -o ./NOTES.md \
+    "$my_url"
+```
 
 ---
 
@@ -442,17 +544,6 @@ jq '.items[0].url' < ./gh-issues.json
 ## vim 1.3
 
 ---
-
-```sh
-webi node
-node --version
-
-pathman add ~/.local/opt/node/bin
-node --version
-
-webi prettier shfmt shellcheck
-webi vim-essentials
-```
 
 ```sh
 vim my-issues.sh
