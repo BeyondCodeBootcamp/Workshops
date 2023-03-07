@@ -5,6 +5,7 @@ Draft Workshop Course Material
 https://beyondcodebootcamp.github.io/Workshops/
 
 1. [Interactive Shell Workshop](./01-shell-slides/)
+   - [Interactive Shell Continued](./01-2-interactive-shell-slides/)
 2. [Shell Scripting Basics Workshop](./02-scripting-basic-slides/)
 
 # Presenter's Notes
